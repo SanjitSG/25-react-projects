@@ -20,7 +20,7 @@ export default function RandomColor() {
     for (let i = 0; i < 6; i++) {
       hexColor += hex[randomColorUtility(hex.length)]
     }
-    console.log(hexColor)
+    // console.log(hexColor)
     setColor(hexColor);
   }
 
