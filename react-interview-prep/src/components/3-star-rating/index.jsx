@@ -1,4 +1,4 @@
-import "../star-rating/styles.css"
+import "./styles.css"
 import { useState } from "react"
 import { FaStar } from "react-icons/fa"
 
