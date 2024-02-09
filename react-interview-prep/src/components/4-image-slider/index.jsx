@@ -54,7 +54,7 @@ export default function ImageSlider({ url, limit = 5, page = 1 }) {
     {/* 6.adding functionality */}
     <BsArrowLeftCircleFill onClick={handlePrevious} className="arrow arrow-left" />
     {
-      images && images.length ? images.map(imageItem => (
+      images && images.length ? images.map((imageItem, index) => (
         <img
           key={imageItem.id}
           alt={imageItem.download_url}
@@ -69,7 +69,7 @@ export default function ImageSlider({ url, limit = 5, page = 1 }) {
         images && images.length ?
           images.map((_, index) => (<button
             key={index}
-            className={currentSlide === index ? "current-indicator" : "current-indicator hide- current-indicator"}
+            className={currentSlide === index ? "current-indicator" : "current-indicator inactive"}
             onClick={() => setCurrentSlide(index)}
           ></button>)) : null
       }
