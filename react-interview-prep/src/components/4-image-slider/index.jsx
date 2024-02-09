@@ -34,7 +34,7 @@ export default function ImageSlider({ url, limit = 5, page = 1 }) {
   }
 
   function handleNext() {
-    setCurrentSlide()
+    setCurrentSlide(currentSlide === images.length - 1 ? 0 : currentSlide + 1)
   }
   useEffect(() => {
     //2
@@ -59,7 +59,7 @@ export default function ImageSlider({ url, limit = 5, page = 1 }) {
           key={imageItem.id}
           alt={imageItem.download_url}
           src={imageItem.download_url}
-          className="current-image"
+          className={currentSlide === index ? "current-image" : "current-image hide-current-image"}
         />
       )) : null
     }
@@ -67,9 +67,11 @@ export default function ImageSlider({ url, limit = 5, page = 1 }) {
     <span className="circle-indicators">
       {
         images && images.length ?
-          images.map((_, index) => <button
+          images.map((_, index) => (<button
             key={index}
-            className="current-indicator"></button>) : null
+            className={currentSlide === index ? "current-indicator" : "current-indicator hide- current-indicator"}
+            onClick={() => setCurrentSlide(index)}
+          ></button>)) : null
       }
     </span>
   </div>
